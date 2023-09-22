@@ -1,13 +1,13 @@
 package com.example.intents.placeholder
 
 import android.content.SharedPreferences
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.ListView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import com.example.intents.R
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -23,20 +23,17 @@ class FavoritesActivity : AppCompatActivity() {
 
     data class QuoteWithTimestamp(val quote: String, val timestamp: Long)
 
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_favorites)
 
-
         listView = findViewById(R.id.listView)
-        deleteButton = findViewById(R.id.deleteButton)
-        favoritesButton = findViewById(R.id.favoritesButton)
+        favoritesButton = findViewById(R.id.favoriteB)
+        deleteButton = findViewById(R.id.deleteB)
 
         val sharedPreferences: SharedPreferences = getSharedPreferences("MyQuotes", MODE_PRIVATE)
-        //val favoriteQuotes = sharedPreferences.getString("listView","")
 
+        // Use an array to store quote types
         val quoteTypes = arrayOf("Motivational", "Funny", "Love")
 
         for (quoteType in quoteTypes) {
@@ -54,7 +51,7 @@ class FavoritesActivity : AppCompatActivity() {
         val adapter = ArrayAdapter(
             this,
             R.layout.list_item_with_timestamp,
-            R.id.quoteTextView,
+            R.id.quotetext,
             favoriteQuotes.map { it.quote }
         )
 
@@ -106,19 +103,17 @@ class FavoritesActivity : AppCompatActivity() {
         val adapter = ArrayAdapter(
             this,
             R.layout.list_item_with_timestamp,
-            R.id.quoteTextView,
+            R.id.quotetext,
             favoriteQuotes.map { it.quote }
         )
 
         listView.adapter = adapter
     }
 
-
     private fun formatTimestamp(timestamp: Long): String {
         val sdf = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
-        return sdf.format(Date())
+        return sdf.format(Date(timestamp))
     }
-
 
     private fun extractQuoteType(quote: String): String {
         return when {

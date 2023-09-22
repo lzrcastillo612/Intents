@@ -10,26 +10,34 @@
         android:id="@+id/favoriteB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Favorites"
         android:layout_gravity="center"
-        android:layout_marginTop="16dp"
-        />
+        android:text="Favorites"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.128"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.976" />
 
     <Button
-        android:id="@+id/delB"
+        android:id="@+id/deleteB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="Remove"
-        tools:layout_editor_absoluteX="36dp"
-        tools:layout_editor_absoluteY="0dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.85"
+        app:layout_constraintStart_toStartOf="@+id/favoriteB"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.976" />
 
     <ListView
         android:id="@+id/listView"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_width="410dp"
+        android:layout_height="666dp"
         android:layout_weight="1"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="29dp" />
+        tools:layout_editor_absoluteY="1dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
